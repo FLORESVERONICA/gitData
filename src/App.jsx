@@ -1,29 +1,19 @@
-import React from "react";
-import { UserProvider } from "./context/userContext";
+import React from 'react'; 
+import { UserProvider } from './context/UserContext'; 
+import UserSearch from './components/UserSearch'; 
+import UserProfile from './components/UserProfile'; 
+import './App.css'; 
 
-
-function App () {
-  
-  
-  const getUser = async () => {
-    try {
-     const response = await fetch(`https://api.github.com/users/${username}`);
-     const data = await response.json(); 
-     console.log(data);
-    } catch (err) { 
-   
-    } 
-  }
-getUser()
-
-  return (
-    <UserProvider>
-      <div>
-        
-      </div>
-    </UserProvider>
-
-  );
-}
+const App = () => { 
+  return ( 
+  <UserProvider> 
+    <div className="app"> 
+     <h1>GitHub User Search</h1> 
+     <UserSearch /> 
+     <UserProfile /> 
+    </div> 
+  </UserProvider> 
+  ); 
+}; 
 
 export default App;
